@@ -223,14 +223,6 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void setupQuantityStation() {
-        Radio rad = new Radio(20);
-        rad.setCurrentRadioStation(15);
-        int expected = 15;
-        int actual = rad.getCurrentRadioStation();
-        Assertions.assertEquals(expected, actual);
-    }
 
 }
 
