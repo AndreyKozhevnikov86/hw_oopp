@@ -99,7 +99,7 @@ public class RadioTest {
     }
 
     @Test
-    public void nextStationAfterMax() {     //следующая станция после конечной радтостанции
+    public void nextStationAfterMax() {     //следующая станция после конечной радиостанции
         Radio rad = new Radio();
         rad.setCurrentRadioStation(9);
         rad.next();
@@ -223,7 +223,35 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+@Test
+    public void currentStation() {
+    Radio rad = new Radio(50);
+    rad.setCurrentRadioStation(15);
+    int expected = 15;
+    int actual = rad.getCurrentRadioStation();
+    Assertions.assertEquals(expected, actual);
+}
+    @Test
+    public void nextStationAfterMaxMod() {     //следующая станция после конечной радиостанции
+        Radio rad = new Radio(10);
+        rad.setCurrentRadioStation(9);
+        rad.next();
 
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void prevStationAfterMinMod() {     //предыдущая станция после первой станции
+        Radio rad = new Radio(10);
+        rad.setCurrentRadioStation(5);
+        rad.setCurrentRadioStation(0);
+        rad.prev();
+
+        int expected = 9;
+        int actual = rad.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
 }
 
 
